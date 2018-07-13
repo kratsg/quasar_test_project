@@ -1,7 +1,7 @@
 
 commandMap = {
 "vcvarsall":"C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\vcvarsall.bat",
-"java":"java",
+"java":"/usr/bin/env java",
 "saxon":"saxon9he.jar",
 "astyle":"astyle",
 "diff":"kdiff3",
