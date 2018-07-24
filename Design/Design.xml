@@ -1,4 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <d:design projectShortName="" xmlns:d="http://cern.ch/quasar/Design" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cern.ch/quasar/Design Design.xsd ">
-  <d:root/>
+  <d:class name="GFEXBoard">
+  	<d:devicelogic></d:devicelogic>
+  	<d:hasobjects instantiateUsing="configuration" class="PowerManagementChip"></d:hasobjects>
+  	<d:hasobjects instantiateUsing="configuration" class="BoardTemperatureSensors"></d:hasobjects>
+  	<d:hasobjects instantiateUsing="configuration" class="DcDcConverter"></d:hasobjects>
+  	<d:hasobjects instantiateUsing="configuration" class="BoardHealthFlags"></d:hasobjects>
+  	<d:hasobjects instantiateUsing="configuration" class="MiniPODs"></d:hasobjects>
+  	<d:hasobjects instantiateUsing="configuration" class="PowerModule"></d:hasobjects>
+	<d:hasobjects instantiateUsing="configuration" class="Functionality"></d:hasobjects>
+  </d:class>
+  <d:class name="Functionality">
+        <d:cachevariable name="onOff" addressSpaceWrite="forbidden"
+                initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+                dataType="OpcUa_Boolean" initialStatus="OpcUa_BadWaitingForInitialData">
+        </d:cachevariable>
+  </d:class>
+  <d:class name="PowerManagementChip">
+  	<d:cachevariable name="voltage" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  </d:class>
+  <d:class name="BoardTemperatureSensors">
+  	<d:devicelogic></d:devicelogic>
+  	<d:cachevariable name="temperature" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  </d:class>
+  <d:class name="DcDcConverter">
+  	<d:cachevariable name="voltage" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  	<d:cachevariable name="current" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  	<d:cachevariable name="power_consumption"
+  		addressSpaceWrite="forbidden" initializeWith="valueAndStatus"
+  		nullPolicy="nullAllowed" dataType="OpcUa_Float"
+  		initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  </d:class>
+  <d:class name="BoardHealthFlags">
+  	<d:cachevariable name="onOff" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Boolean" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  </d:class>
+  <d:class name="MiniPODs">
+  	<d:cachevariable name="temperature" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+	<d:cachevariable name="optical_power" addressSpaceWrite="forbidden"
+                initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+                dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+        </d:cachevariable>
+	<d:cachevariable name="loss_of_signal" addressSpaceWrite="forbidden"
+                initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+                dataType="OpcUa_Boolean" initialStatus="OpcUa_BadWaitingForInitialData">
+        </d:cachevariable>
+  </d:class>
+  <d:class name="PowerModule">
+  	<d:cachevariable name="voltage" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  	<d:cachevariable name="current" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  	<d:cachevariable name="temperature" addressSpaceWrite="forbidden"
+  		initializeWith="valueAndStatus" nullPolicy="nullAllowed"
+  		dataType="OpcUa_Float" initialStatus="OpcUa_BadWaitingForInitialData">
+  	</d:cachevariable>
+  </d:class>
+  <d:root>
+  	<d:hasobjects instantiateUsing="configuration" class="GFEXBoard"></d:hasobjects></d:root>
 </d:design>
